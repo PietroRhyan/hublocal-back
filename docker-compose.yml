@@ -5,14 +5,14 @@ services:
     image: postgres
     container_name: hublocal_database
     ports: 
-      - 5432:5432
+      - 6500:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=hublocal
       - POSTGRES_DB=HublocalDB
     restart: always
-    volumes: 
-      - pgdata:/data/postgres
+    volumes:
+      - .:/var/lib/postgresql/data
 
   app: 
     build: .

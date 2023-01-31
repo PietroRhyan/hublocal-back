@@ -2,8 +2,8 @@ import { DataSource } from 'typeorm';
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: "database",
-  port: 5432,
+  host: "localhost",
+  port: 6500,
   username: "postgres",
   password: "hublocal",
   database: "HublocalDB",
