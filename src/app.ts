@@ -1,6 +1,8 @@
 import cors from 'cors'
 import express, { Request, Response, NextFunction} from 'express'
-import { AppDataSource } from 'infra'
+import { AppDataSource } from './infra'
+
+import 'reflect-metadata'
 
 import { AppError } from './errors/AppError'
 
