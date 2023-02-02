@@ -1,20 +1,20 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add typeorm@latest
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add cross-env
 
 PATH: 
-  C:\Users\odali\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\odali\bin;C:\Python311\Scripts;C:\Python311;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Users\odali\AppData\Local\Microsoft\WindowsApps;C:\Users\odali\AppData\Roaming\npm;C:\Users\odali\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\odali\AppData\Local\Yarn\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\pietr\AppData\Local\Microsoft\WindowsApps;;C:\Users\pietr\AppData\Roaming\npm;C:\Users\pietr\AppData\Local\Yarn\bin;C:\Users\pietr\AppData\Local\Programs\Microsoft VS Code\bin
 
 Yarn version: 
   1.22.19
 
 Node version: 
-  18.13.0
+  18.12.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\odali\OneDrive\Área de Trabalho\Pietro Apps\HubLocal\hublocal-back\node_modules\.bin\ts-node-dev'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\pietr\Desktop\Everything\Dev Apps\IndividualProjects\hublocal-back\node_modules\.bin\ts-node-dev'
 
 npm manifest: 
   {
@@ -24,8 +24,9 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "dev": "ts-node-dev ./src/server.ts",
-      "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli -d ormconfig.ts",
+      "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/infra",
       "migration:create": "cross-var ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli migration:create ./src/infra/migrations/$npm_config_name",
+      "migration:generate": "cross-var npm run typeorm -- migration:generate ./src/infra/migrations/$npm_config_name",
       "migration:run": "npm run build && npm run typeorm -- migration:run"
     },
     "devDependencies": {

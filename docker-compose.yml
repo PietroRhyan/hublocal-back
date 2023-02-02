@@ -2,26 +2,27 @@ version: "3.8"
 
 services: 
   database: 
-    image: postgres
+    image: postgres:latest
     container_name: hublocal_database
-    ports: 
-      - 6500:5432
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=hublocal
-      - POSTGRES_DB=HublocalDB
     restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=hublocal_db
+      - POSTGRES_USER=hublocal
+      - POSTGRES_PASSWORD=hublocal123
     volumes:
-      - .:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+
 
   app: 
     build: .
     container_name: hublocal_back
+    restart: always
     ports:
       - 3333:3333
     volumes: 
       - .:/usr/app
-    restart: always
     links: 
       - database
     depends_on:
